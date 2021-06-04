@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html Lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Hobbies</title>
+    </head>
+    <body>
+    <section>
+        <div class="bannerVideo" id="slideShow">
+            <video src="v5.mp4" autoplay muted loop class="active" width="100%" height="100%"></video>
+            <video src="v2.mp4" autoplay muted loop width="100%" height="100%"></video>
+            <video src="v3.mp4" autoplay muted loop width="100%" height="100%"></video>
+            <video src="v4.mp4" autoplay muted loop width="100%" height="100%"></video>
+        </div>
+        <div class="container">
+            <header id="navbar">
+                <a href="#" class="logo">Vadim Bogatu</a>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Interets</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <span class="menuIcon" onclick="toggleMenu()"></span>
+            </header>
+            <div class="content">
+                <div class="bannerText" id="bannerT">
+                    <div class="active">
+                        <h2>Voleyball</h2>
+                        <p>Volleyball is a team sport in which two teams of six players are separated by a net. Each team tries to score points by grounding a ball on the other team's court under organized rules.</p>
+                    </div>
+                    
+                    <div>
+                        <h2>Surfing</h2>
+                        <p>Surfing is a surface water sport in which an individual, a surfer, uses a board to ride on the forward section, or face, of a moving wave of water, which usually carries the surfer towards the shore.</p>
+                    </div>
+                    <div>
+                        <h2>Billiard</h2>
+                        <p>Billiard sports are a wide variety of games of skill generally played with a cue stick, which is used to strike billiard balls and thereby cause them to move around a cloth-covered billiards table bounded by elastic bumpers known as cushions.</p>
+                    </div>
+                    <div>
+                        <h2>Skateboarding</h2>
+                        <p>Skateboarding is an action sport originating in the United States that involves riding and performing tricks using a skateboard, as well as a recreational activity, an art form, an entertainment industry job, and a method of transportation.</p>
+                    </div>
+                </div>
+            </div>
+        <ul class="sci">
+            <li><a href="#"><img src="facebook.png"></a></li>    
+            <li><a href="#"><img src="twitter.png"></a></li>  
+            <li><a href="#"><img src="instagram.png"></a></li>  
+        </ul>
+        
+        <ul class="controls">
+            <li onclick="prevSlide();"><img src="left.png"></li>    
+            <li onclick="nextSlide();"><img src="right.png"></li>    
+        </ul>
+        </div>
+    </section>
+    <script>
+       const slideShow = document.getElementById('slideShow');
+       const slides = slideShow.getElementsByTagName('video');
+        const textChange = document.getElementById('bannerT');
+        const text = textChange.getElementsByTagName('div');
+        var index=0;
+        
+        function nextSlide(){
+            slides[index].classList.remove('active');
+            text[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+            text[index].classList.add('active');
+        }
+        
+        function prevSlide(){
+            slides[index].classList.remove('active');
+            text[index].classList.remove('active');
+            index = (index-1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+            text[index].classList.add('active');
+        }
+        
+        function toggleMenu(){
+            const menuIcon = document.querySelector('.menuIcon');
+            const navbar = document.getElementById('navbar');
+            menuIcon.classList.toggle('active');
+            navbar.classList.toggle('active')
+        }
+        
+    </script>
+    </body>
+</html>
